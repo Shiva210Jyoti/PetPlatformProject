@@ -1,0 +1,98 @@
+.carousel-wrapper {
+  text-align: center;
+  margin: auto;
+  max-width: 1200px;
+  background-color: #FFF9EC;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.horizontal-scroll-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.carousel-card:hover {
+  transform: translateY(-5px);
+}
+
+.carousel-pet-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.carousel-card-details {
+  padding: 0.8rem;
+  text-align: left;
+}
+
+.carousel-card-details h3 {
+  margin: 0.2rem 0;
+}
+
+.carousel-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 2000;
+}
+
+.carousel-modal-content {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 1.5rem 1rem 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ff7f87;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.carousel-modal-close:hover {
+  background: #ff5c66;
+}
