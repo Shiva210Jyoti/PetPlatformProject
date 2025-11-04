@@ -146,6 +146,60 @@ If `ADMIN_DEFAULT_USERNAME` and `ADMIN_DEFAULT_PASSWORD` are provided, a default
 - `npm run build` (client) – build optimized static assets
 - `npm start` (server) – start Express server
 
+## Deployment
+
+**⚠️ Important:** This is a full-stack application that requires a Node.js server. GitHub Pages cannot deploy this application as it only supports static sites.
+
+### Recommended Platforms
+
+1. **Render (Free Tier Available)**
+   - Go to [render.com](https://render.com)
+   - Connect your GitHub repository
+   - Create a new Web Service
+   - Use the `render.yaml` configuration file included in this repo
+   - Set environment variables in the Render dashboard (MONGO_URI, CLIENT_ORIGIN, etc.)
+
+2. **Railway**
+   - Go to [railway.app](https://railway.app)
+   - Connect your GitHub repository
+   - Railway will auto-detect Node.js and deploy
+   - Add environment variables in the Railway dashboard
+
+3. **Vercel (Frontend + Serverless)**
+   - Frontend can deploy to Vercel
+   - Backend APIs can use Vercel Serverless Functions
+   - Requires some code restructuring
+
+4. **Heroku**
+   - Go to [heroku.com](https://heroku.com)
+   - Create a new app and connect your GitHub repo
+   - Add environment variables in Heroku dashboard
+   - Note: Heroku no longer has a free tier
+
+### Deployment Steps (Render Example)
+
+1. Push your code to GitHub (already done ✅)
+2. Sign up/login at [render.com](https://render.com)
+3. Click "New +" → "Web Service"
+4. Connect your GitHub repository
+5. Select your repository and branch
+6. Render will auto-detect the `render.yaml` file
+7. Set environment variables:
+   - `MONGO_URI` - Your MongoDB Atlas connection string
+   - `CLIENT_ORIGIN` - Your Render app URL (e.g., `https://your-app.onrender.com`)
+   - `ADMIN_DEFAULT_USERNAME` - Admin username
+   - `ADMIN_DEFAULT_PASSWORD` - Admin password
+   - (Optional) SMTP settings for email notifications
+8. Click "Create Web Service"
+9. Wait for deployment to complete (build may take 5-10 minutes)
+
+### MongoDB Atlas Setup
+
+If you haven't already:
+1. Create a free cluster at [mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
+2. Get your connection string
+3. Add your Render app IP to MongoDB Atlas Network Access whitelist (or use 0.0.0.0/0 for all IPs)
+
 ## Contributing
 
 1. Fork the repository and create a feature branch.

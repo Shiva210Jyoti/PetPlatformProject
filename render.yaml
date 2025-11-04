@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: pet-paradise-app
+    env: node
+    plan: free
+    buildCommand: npm install && cd client && npm install && npm run build && cd ..
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false  # Set this in Render dashboard
+      - key: PORT
+        value: 10000  # Render sets this automatically, but we can override
+      - key: CLIENT_ORIGIN
+        value: https://pet-paradise-app.onrender.com  # Update with your actual URL
+      - key: ADMIN_DEFAULT_USERNAME
+        sync: false  # Set in Render dashboard
+      - key: ADMIN_DEFAULT_PASSWORD
+        sync: false  # Set in Render dashboard
+      - key: SMTP_HOST
+        sync: false  # Optional: Set in Render dashboard
+      - key: SMTP_PORT
+        sync: false  # Optional: Set in Render dashboard
+      - key: SMTP_USER
+        sync: false  # Optional: Set in Render dashboard
+      - key: SMTP_PASS
+        sync: false  # Optional: Set in Render dashboard
+
